@@ -1,0 +1,12 @@
+.vscode/
+
+temp/
+data/
+
+test.*
+*.out
+*.so
+*.list
+*.pdf
+*.zip
+cgi-bin/

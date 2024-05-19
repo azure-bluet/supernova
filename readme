@@ -1,0 +1,14 @@
+Supernova is a Minecraft Server Player Database.
+By using Supernova, you can easily query players' in-game information, and build related websites.
+By default, in-game information contains the following data:
+ - Players' online time;
+ - Players' first join time;
+ - Players' advancements.
+Supernova also supports plugins, designed for Minecraft mod/plugin support.
+ - However, in order to store mod/plugin data in Supernova database, you need to modify the mod/plugin
+   or inject code into them.
+Supernova is licensed under GNU Affero General Public License v3.0 (or later), unless otherwise noted.
+
+In order to use Supernova in your environment, you have to build it yourself. build.sh might be useful,
+but it might not be applicapable to your system. boot.py is used to start Supernova, save daemon and
+testing HTTP server, but you may modify it to fit your server.
