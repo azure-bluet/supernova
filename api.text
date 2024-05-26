@@ -1,0 +1,25 @@
+A simple documentation
+
+Create a socket
+ -> Send a character (reqch) as the request type
+ -> -> P refers to Ping
+ -> -> S refers to Save
+ -> If reqch is not P nor S, send a UUID
+ -> -> N refers to Create a New Player
+ -> If not N, send the channel name in the following steps:
+ -> -> Send the length as a short type (2 byte) in little endian
+ -> -> Send the complete channel name
+ -> If reqch is U: Update request
+ -> If reqch is Q: Query request
+
+Starfruit:
+ GameTime:
+  Update: Send J or L (J means player joining, L means leaving), and it is done
+  Query: Receive three long type (8 byte) in little endian, refering to joining time, total stayed time and last login time.
+ Advancement:
+  Update:
+   Send a character, G or R, to grant or revoke an advancement
+   Send the advancement name in the same way as the channel name mentioned previously
+  Query:
+   Receive the amount of advancements as an int type (4 byte)
+   Then for each advancement, receive an int type as the length then receive the full name

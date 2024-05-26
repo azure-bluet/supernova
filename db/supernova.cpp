@@ -237,6 +237,18 @@ void* rip_first_connection (void*)
     return shut (nullptr);
 }
 
+// The daemon is now merged into the main thread
+void* save_daemon (void*)
+{
+    while (true)
+    {
+        sleep (15);
+        shut (nullptr);
+        cout << "Autosaved" << endl;
+    }
+    return nullptr;
+}
+
 const char version [] = "1.0.0";
 
 #define entrance_name "_Z8entrancePKc" // For g++ 13.2.0 on GNU/Linux
@@ -311,6 +323,7 @@ int main (void)
     socklen_t addrlen;
     pthread_t tid;
     pthread_create (&tid, nullptr, rip_first_connection, nullptr);
+    pthread_create (&tid, nullptr, save_daemon, nullptr);
     // Here's a smile face for you
     C:
     cli = accept (sock, &cliaddr, &addrlen);
